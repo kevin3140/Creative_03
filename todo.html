@@ -1,44 +1,42 @@
 <!DOCTYPE html>
 <html>
+
 <head>
-  
-<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
-<script src="todo.js"></script>
-<link rel="stylesheet" type="text/css" href="todo.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.0/angular.min.js"></script>
+  <script src="todo.js"></script>
+  <link rel="stylesheet" type="text/css" href="todo.css">
   <meta charset="utf-8">
   <title>To do lists</title>
 </head>
+
 <body>
- 
-  <div ng-app='app' ng-controller='mainCtrl' > 
-  
-    
-    
- 
-    <form name='userForm' ng-submit='addNew(userForm)' class="header"> <!-- [1], [2] -->
+
+  <div ng-app='app' ng-controller='mainCtrl'>
+
+    <form name='userForm' ng-submit='addNew(userForm)' class="header">
+
       <h1>My Todo Lists</h1>
-      <input placeholder='todo' ng-model='userForm.todo'/>
-     
-       <input placeholder='dates' ng-model='userForm.dates'/>
-      <!-- [3] -->
-      
-      
-      
+      <input placeholder='todo' ng-model='userForm.todo' />
+
+      <input placeholder='dates' ng-model='userForm.dates' />
+
+
       <button type='submit'>Add New</button>
-      
+
     </form>
-    
-    
-   
-<ul class='User-list'>
-  <li ng-repeat='user in users'>
-    <avatar user='user' />
-  </li>
-</ul>
-    
-<footer class="footer">
-  <p>Created by Gyuhwi lee and Your Name</p>
-</footer>
+
+    <ul class='User-list'>
+      <li ng-repeat='item in itemList'>
+        <h4>•  {{item.todo}} due {{item.dates}} <button class="delete" ng-click=removeElement($index)>X</button></h4>
+      </li>
+    </ul>
+  </div>
+
+  <footer class="footer">
+    <p>Created by Gyuhwi lee and Dallin Sharp</p>
+  </footer>
 
 </body>
+
 </html>
